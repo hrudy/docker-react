@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t hrudy/docker-react -f Dockerfile.dev .
+script:
+ - docker run hrudy/docker-react npm run test -- --coverage
+
